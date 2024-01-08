@@ -1,0 +1,26 @@
+body {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "Roboto", sans-serif;
+    background-color: #393E46;
+    color: #00ADB5;
+}
+header {
+    background-color: #222831;
+    display: flex;
+    justify-content: center;
+}
+.content {
+    display: flex;
+    justify-content: center;
+}
+footer {
+    background-color: #222831;
+    color: #EEEEEE;
+    display: flex;
+    justify-content: center;
+}
