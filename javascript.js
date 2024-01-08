@@ -1,22 +1,34 @@
+const grid = document.querySelector(".grid");
 const clearButton = document.querySelector("#clear");
+const slider = document.querySelector("#grid-slider");
 
-createGrid();
+createGrid(16);
 
 clearButton.addEventListener("click", () => {
     clearGrid();
 });
 
+slider.addEventListener("mouseup", () => {
+    const sliderValueText = document.querySelector("#slider-value");
+    sliderValueText.textContent = `${slider.value}x${slider.value}`;
+    deleteChildNodes(grid);
+    createGrid(slider.value)
+});
 
+function deleteChildNodes(node) {
+    let child = node.lastElementChild;
+    while (child) {
+        node.removeChild(child);
+        child = node.lastElementChild;
+    }
+}
 
-function createGrid() {
-    const grid = document.querySelector(".grid");
-
-    for (i = 0; i < 16; i++) {
+function createGrid(gridSize) {
+    for (i = 0; i < gridSize; i++) {
         const column = document.createElement("div");
         column.classList.add("column");
-        for (j = 0; j < 16; j++) {
+        for (j = 0; j < gridSize; j++) {
             const row = document.createElement("div");
-            row.textContent = j;
             row.classList.add("row");
 
             row.addEventListener("mouseover", () => { // change color on hover
